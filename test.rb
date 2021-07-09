@@ -1,3 +1,4 @@
+#good job!!!!
 to_euros = lambda {|dollars| dollars * 0.95}
 
 
