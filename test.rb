@@ -1,8 +1,8 @@
 #good job!!!!
-to_euros = lambda {|dollars| dollars * 0.95}
+to_pesos = lambda {|dollars| dollars * 120}
 
 
-p [1000, 2000, 3000].map{|value| to_euros.call(value)}
+p [1000, 2000, 3000].map{|value| to_pesos.call(value)}
 
 
 
