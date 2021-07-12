@@ -1,18 +1,13 @@
-#good job!!!!
-to_pesos = lambda {|dollars| dollars * 120}
+def find_day_of_year_by_number(number)
+    current_day = Time.new(2021, 1, 1)
+    one_day = 60 * 60 * 24
+    until current_day.yday == number
+            current_day += one_day
+    end
+    current_day
+end
 
-#avilees comment
-#yolo bitches
-p [1000, 2000, 3000].map{|value| to_pesos.call(value)}
-
-
-
-
-
-    # upcase_word = lambda {
-    #     |arr, num|
-    #     p arr.map{|value| value.upcase}
-    # }
-
-
-
+p find_day_of_year_by_number(150)
+p find_day_of_year_by_number(246)
+p find_day_of_year_by_number(330)
+p find_day_of_year_by_number(26)
