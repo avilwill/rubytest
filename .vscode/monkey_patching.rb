@@ -1,20 +1,20 @@
-class Hash
-    def indetify_duplicate_values
-        values = []
-        dupes = []
+class Book
+    attr_accessor :title, :author
+    
+    def initialize(farm, author, pages)
+        @title = farm
+        @author = author
+        @pages = pages
+    end
 
-        self.each_value do |value|
-            if values.include?(value)
-                dupes << value
-            else
-                values << value
-            end
-        end
-        dupes.uniq
+    def print_title
+        p title
+    end
+
+    def print_auth
+        p author
     end
 end
 
-scores = {a: 100, b: 100, c: 83, d: 50, e: 13,
-         f: 6, g: 100, h: 13, i: 50, j: 80}
-
-p scores.indetify_duplicate_values
+newb = Book.new("anythi", "new", 23)
+newb.print_auth
