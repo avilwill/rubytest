@@ -1,13 +1,31 @@
-def find_day_of_year_by_number(number)
-    current_day = Time.new(2021, 1, 1)
-    one_day = 60 * 60 * 24
-    until current_day.yday == number
-            current_day += one_day
+class Gadget
+    attr_writer :password
+    attr_reader :production_number
+    attr_accessor :username
+
+    def initialize(username, password)
+        @username = username
+        @password = password
+        @production_number = generate_production_number
     end
-    current_day
+    
+    def to_s
+        "Gadget #{@production_number} has the username #{@username}.
+        It is made from the #{self.class} class and it
+        has the ID #{self.object_id}."
+    end
+    private
+
+    def generate_production_number
+        start_digits = rand(10000..999999)
+        end_digits = rand(10000..999999)
+        alphabet = ("A".."Z").to_a
+        middle_digits = "2021"
+        5.times {middle_digits << alphabet.sample}
+        "#{start_digits}-#{middle_digits}-#{end_digits}"
+        
+    end
 end
 
-p find_day_of_year_by_number(150)
-p find_day_of_year_by_number(246)
-p find_day_of_year_by_number(330)
-p find_day_of_year_by_number(26)
+phone = Gadget.new("user", "password")
+p phone.generate_production_number
