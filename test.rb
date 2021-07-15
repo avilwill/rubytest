@@ -1,31 +1,23 @@
-class Gadget
-    attr_writer :password
-    attr_reader :production_number
-    attr_accessor :username
-
-    def initialize(username, password)
-        @username = username
-        @password = password
-        @production_number = generate_production_number
+class Car
+    def initialize(age, miles)
+        base_value = 20000
+        age_deduction = age * 1000
+        miles_deduction = (miles / 10.to_f)
+        @value = base_value - age_deduction - miles_deduction
     end
-    
-    def to_s
-        "Gadget #{@production_number} has the username #{@username}.
-        It is made from the #{self.class} class and it
-        has the ID #{self.object_id}."
-    end
-    private
 
-    def generate_production_number
-        start_digits = rand(10000..999999)
-        end_digits = rand(10000..999999)
-        alphabet = ("A".."Z").to_a
-        middle_digits = "2021"
-        5.times {middle_digits << alphabet.sample}
-        "#{start_digits}-#{middle_digits}-#{end_digits}"
-        
+    def compare_car_with(car)
+        self.value > car.value ? "Your car is better" : "Your car is worse"
+    end
+
+    protected
+
+    def value
+        @value
     end
 end
 
-phone = Gadget.new("user", "password")
-p phone.generate_production_number
+civic = Car.new(3, 30000)
+fiat = Car.new(1, 20000)
+p civic.compare_car_with(fiat)
+p fiat.compare_car_with(civic)
